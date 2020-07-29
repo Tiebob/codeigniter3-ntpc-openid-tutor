@@ -22,4 +22,22 @@ class Welcome extends CI_Controller {
 	{
 		$this->load->view('welcome_message');
 	}
+
+	public function hello()
+	{
+		echo "<h1>Hello</h1>";
+	}
+
+	public function hello2()
+	{
+		$this->load->view('hello2');
+	}
+
+	public function tpl()
+	{
+		$this->load->view('tpl/header');
+		$this->load->view('tpl/menu');
+		//$this->load->view('tpl/main');
+		$this->load->view('tpl/footer');
+	}	
 }
