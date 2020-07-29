@@ -13,26 +13,27 @@
             <a class="nav-link" href="<?=base_url('student/lists')?>">查詢</a>
           </li>
 
-          <li class="nav-item">
-            <a class="nav-link" href="#"><?=$this->session->cname?></a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link" href="<?=base_url('auth/login')?>">登入</a>
-          </li>
-
-          <!-- <li class="nav-item">
-            <a class="nav-link disabled" href="#">Disabled</a>
-          </li> -->
-          
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+          <?php if( $this->session->is_logined == true ): ?>
+            <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?=$this->session->cname?></a>
             <div class="dropdown-menu" aria-labelledby="dropdown01">
-              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="<?=base_url('auth/logout')?>">登出</a>
               <a class="dropdown-item" href="#">Another action</a>
               <a class="dropdown-item" href="#">Something else here</a>
             </div>
           </li>
+
+          <?php else: ?>
+          <li class="nav-item">
+            <a class="nav-link" href="<?=base_url('auth/login')?>">登入</a>
+          </li>
+        
+          <?php endif; ?>
+          <!-- <li class="nav-item">
+            <a class="nav-link disabled" href="#">Disabled</a>
+          </li> -->
+          
+          
         
         </ul>
         <!-- <form class="form-inline my-2 my-lg-0">
