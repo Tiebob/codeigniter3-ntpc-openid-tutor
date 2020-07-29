@@ -35,6 +35,34 @@ class Auth extends CI_Controller
     $this->load->view('auth/login', $data);
     $this->load->view('tpl/footer', $data);
   }
+
+  public function do_login(){
+   
+    require FCPATH . 'assets/lib/openid.php';
+
+    try {
+      $openid = new LightOpenID( base_url() );
+      if ($_SERVER['REQUEST_METHOD'] == 'POST' && !$openid->mode) {
+        $openid->identity = 'https://openid.ntpc.edu.tw/';
+        $openid->required = array(
+          'namePerson/friendly',
+          'contact/email',
+          'namePerson',
+          'person/gender',
+          'contact/country/home',
+          'pref/language',
+          'pref/timezone'
+        );
+        header('Location: ' . $openid->authUrl());
+      }
+    } catch (ErrorException $e) {
+      echo $e->getMessage();
+    }
+
+    
+  }
+
+
 }
 
 
