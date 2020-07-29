@@ -14,6 +14,10 @@
           </li>
 
           <li class="nav-item">
+            <a class="nav-link" href="#"><?=$this->session->cname?></a>
+          </li>
+
+          <li class="nav-item">
             <a class="nav-link" href="<?=base_url('auth/login')?>">登入</a>
           </li>
 
