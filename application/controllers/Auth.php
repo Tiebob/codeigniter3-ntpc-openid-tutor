@@ -94,6 +94,13 @@ class Auth extends CI_Controller
         echo $role . '<br />';
         echo $title . '<br />';
         print_r( $groups ) . '<br />'; */
+
+        $this->session->cname = $cname;
+        $this->session->account = $account;
+        $this->session->is_logined = true;
+        header('Location:' . base_url('student') );
+    }else{
+      //header('Location:' . base_url('auth/login'));
     }
   }
 }
