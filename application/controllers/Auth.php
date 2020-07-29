@@ -59,10 +59,43 @@ class Auth extends CI_Controller
       echo $e->getMessage();
     }
 
-    
+    if ($openid->mode && $openid->validate()) {
+
+      $attr = $openid->getAttributes();
+				$tmp = explode('/', $openid->identity);
+				$account = end($tmp);
+			
+				$cname = $attr['namePerson'];
+				$email = $attr['contact/email'];
+
+				//$allowed_school_id = '014613';
+				$allowed_school_ids = ['014613', '014569'];
+				// JSON 
+				foreach (json_decode($attr['pref/timezone']) as $item) {
+					foreach($allowed_school_ids as $allowed_school_id){
+						if( $item->id == $allowed_school_id ){
+							$school_id = $item->id;
+							$role = $item->role;
+							$title = $item->title;
+							$groups = $item->groups;
+							$groups_string = implode($item->groups);
+							if( $item->title == '導師'){
+								$is_allowed = true;
+							}				
+						}
+					}
+        }
+        
+        //測試是否 openid 資料是否取得
+        /* echo $account . '<br />';
+        echo $cname . '<br />';
+        echo $email . '<br />';
+        echo $school_id . '<br />';
+        echo $role . '<br />';
+        echo $title . '<br />';
+        print_r( $groups ) . '<br />'; */
+    }
   }
-
-
 }
 
 
