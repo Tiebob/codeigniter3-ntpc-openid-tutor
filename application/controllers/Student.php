@@ -18,7 +18,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
  *
  */
 
-class Studnet extends CI_Controller
+class Student extends CI_Controller
 {
     
   public function __construct()
@@ -28,9 +28,14 @@ class Studnet extends CI_Controller
 
   public function index()
   {
+
+    $this->load->helper('url');
+
+    $data["header_title"] = '學生查詢系統';
+
     $this->load->view('tpl/header');
 		$this->load->view('tpl/menu');
-    $this->load->view('student/index');
+    $this->load->view('student/index', $data);
     $this->load->view('tpl/footer');
     
   }
