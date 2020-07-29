@@ -28,9 +28,6 @@ class Student extends CI_Controller
 
   public function index()
   {
-
-    $this->load->helper('url');
-
     $data["header_title"] = '學生查詢系統';
 
     $this->load->view('tpl/header');
