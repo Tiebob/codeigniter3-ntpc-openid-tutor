@@ -36,6 +36,21 @@ class Auth extends CI_Controller
     $this->load->view('tpl/footer', $data);
   }
 
+  public function do_login()
+  {
+    $username = $this->input->post("username");
+    $pass = $this->input->post("pass");
+
+    //臨時認證
+    if( $username == 'aaaaa' and $pass == '11111'){
+      echo "歡迎你來到學生查詢系統<br />";
+      echo "<a href='/'> 首頁</a> ";
+    }else{
+      echo "抱歉，帳號密碼不相符，請確認後重新登入<br />";
+      echo "<a href='/auth/login'> 重新登入</a> ";
+    }
+  }
+
   public function do_ntpc_login(){
    
     require FCPATH . 'assets/lib/openid.php';
