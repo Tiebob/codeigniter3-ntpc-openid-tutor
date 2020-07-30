@@ -26,6 +26,14 @@ class Auth extends CI_Controller
     parent::__construct();
   }
 
+  public function test()
+  {
+    $this->load->helper('util');
+
+    echobr( '測試Helper 功能' );
+    echo '結束';
+  }
+
   public function login()
   {    
     $data['header_title'] = '新北市OpenID登入';
