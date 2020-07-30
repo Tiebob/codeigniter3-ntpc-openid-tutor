@@ -36,7 +36,7 @@ class Auth extends CI_Controller
     $this->load->view('tpl/footer', $data);
   }
 
-  public function do_login(){
+  public function do_ntpc_login(){
    
     require FCPATH . 'assets/lib/openid.php';
 
