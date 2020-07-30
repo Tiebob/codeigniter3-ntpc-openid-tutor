@@ -43,8 +43,9 @@ class Auth extends CI_Controller
 
     //臨時認證
     if( $username == 'aaaaa' and $pass == '11111'){
-      echo "歡迎你來到學生查詢系統<br />";
-      echo "<a href='/'> 首頁</a> ";
+      $this->session->username = $username;
+      $this->session->is_logined = true;
+      redirect('student/index');
     }else{
       echo "抱歉，帳號密碼不相符，請確認後重新登入<br />";
       echo "<a href='/auth/login'> 重新登入</a> ";
