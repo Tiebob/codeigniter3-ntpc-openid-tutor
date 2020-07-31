@@ -31,6 +31,38 @@ function echobr($str)
 }
 }
 
+if (!function_exists('d')) {
+  /**
+   * d
+   *
+   * This d helpers
+   *
+   * @param   ...
+   * @return  ...
+   */
+  function d($obj){
+    echo '<pre>';
+    var_dump($obj);
+    echo '</pre>';
+  }
+}
+
+if (!function_exists('dd')) {
+  /**
+   * dd
+   *
+   * This dd helpers
+   *
+   * @param   ...
+   * @return  ...
+   */
+  function dd($obj){
+    echo '<pre>';
+    var_dump($obj);
+    echo '</pre>';
+    die();
+  }
+}
 // ------------------------------------------------------------------------
 
 /* End of file Util_helper.php */
